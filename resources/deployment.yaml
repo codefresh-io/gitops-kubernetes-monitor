@@ -1,0 +1,78 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: kubernetes-monitor
+  name: kubernetes-monitor
+  namespace: default
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: load-k8s-monitor
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 50%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+      creationTimestamp: null
+      labels:
+        app: load-k8s-monitor
+    spec:
+      containers:
+        - env:
+            - name: NODE_ENV
+              value: kubernetes
+            - name: PORT
+              value: "9016"
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  key: mongo-uri
+                  name: load-k8s-monitor
+            - name: NEWRELIC_LICENSE_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: newrelic-license-key
+                  name: load-codefresh
+          image: gcr.io/codefresh-inc/codefresh/cf-k8s-monitor:4.6.8
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /api/health
+              port: 9016
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 50
+            successThreshold: 1
+            timeoutSeconds: 10
+          name: kubernetes-monitor
+          ports:
+            - containerPort: 9016
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /api/ready
+              port: 9016
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 10
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+        - name: load-codefresh-registry
+      restartPolicy: Always
+      schedulerName: default-scheduler
