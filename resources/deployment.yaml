@@ -41,7 +41,7 @@ spec:
             secretKeyRef:
               key: newrelic-license-key
               name: load-codefresh
-        image: gcr.io/codefresh-inc/codefresh/cf-k8s-monitor:4.6.9
+        image: gcr.io/codefresh-inc/codefresh/cf-k8s-monitor:4.6.10
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
