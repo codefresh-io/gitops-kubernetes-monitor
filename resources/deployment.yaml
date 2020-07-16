@@ -41,7 +41,7 @@ spec:
                 secretKeyRef:
                   key: newrelic-license-key
                   name: load-codefresh
-          image:  docker.io/pashacodefresh/cf-k8s-monitor:master
+          image: docker.io/pashacodefresh/cf-k8s-monitor:master
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
