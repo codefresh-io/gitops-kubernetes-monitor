@@ -41,7 +41,7 @@ spec:
                 secretKeyRef:
                   key: newrelic-license-key
                   name: load-codefresh
-          image: gcr.io/codefresh-inc/codefresh/context-manager:2.9.7-saas-7778
+          image: gcr.io/codefresh-inc/codefresh/pipeline-manager:3.73.5-saas-7948
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
