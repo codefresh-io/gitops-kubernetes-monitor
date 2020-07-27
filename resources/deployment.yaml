@@ -41,7 +41,7 @@ spec:
                 secretKeyRef:
                   key: newrelic-license-key
                   name: load-codefresh
-          image: gcr.io/codefresh-inc/codefresh/pipeline-manager:3.73.5-saas-7948
+          image: nginxdemos/hello
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
