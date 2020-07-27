@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: kubernetes-monitor
-  name: kubernetes-monitor
+  name: nginx
   namespace: default
 spec:
   progressDeadlineSeconds: 600
@@ -41,13 +41,13 @@ spec:
                 secretKeyRef:
                   key: newrelic-license-key
                   name: load-codefresh
-          image: gcr.io/codefresh-inc/codefresh/pipeline-manager:3.75.2-saas-7732
+          image: nginx
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
             httpGet:
               path: /api/health
-              port: 9016
+              port: 80
               scheme: HTTP
             initialDelaySeconds: 30
             periodSeconds: 50
@@ -61,7 +61,7 @@ spec:
             failureThreshold: 3
             httpGet:
               path: /api/ready
-              port: 9016
+              port: 80
               scheme: HTTP
             periodSeconds: 10
             successThreshold: 1
