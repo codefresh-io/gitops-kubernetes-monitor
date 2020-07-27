@@ -26,21 +26,6 @@ spec:
         app: load-k8s-monitor
     spec:
       containers:
-        - env:
-            - name: NODE_ENV
-              value: kubernetes
-            - name: PORT
-              value: "9016"
-            - name: MONGO_URI
-              valueFrom:
-                secretKeyRef:
-                  key: mongo-uri
-                  name: load-k8s-monitor
-            - name: NEWRELIC_LICENSE_KEY
-              valueFrom:
-                secretKeyRef:
-                  key: newrelic-license-key
-                  name: load-codefresh
           image: nginx
           imagePullPolicy: IfNotPresent
           livenessProbe:
