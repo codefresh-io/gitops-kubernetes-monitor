@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: gcr.io/codefresh-inc/codefresh/pipeline-manager:3.75.4-activity-status
+          image: gcr.io/codefresh-inc/codefresh/pipeline-manager:3.78.1-saas-7732
           ports:
           - containerPort: 80
