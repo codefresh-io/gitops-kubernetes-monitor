@@ -26,7 +26,11 @@ spec:
         app: load-k8s-monitor
     spec:
       containers:
-        - name: nginx
+        - name: pipeline
           image:  gcr.io/codefresh-inc/codefresh/pipeline-manager:3.80.2-saas-7732
+          ports:
+          - containerPort: 80
+        - name: nginx
+          image:  nginx
           ports:
           - containerPort: 80
