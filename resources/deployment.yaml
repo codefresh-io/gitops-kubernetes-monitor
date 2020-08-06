@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
         - name: pipeline-manager
-          image: gcr.io/codefresh-inc/codefresh/cf-k8s-monitor:4.6.8
+          image: nginx
           ports:
             - containerPort: 80
