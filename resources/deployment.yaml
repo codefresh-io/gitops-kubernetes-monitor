@@ -27,4 +27,4 @@ spec:
     spec:
       containers:
         - name: test
-          image: kornkitti/express-hello-world
+          image: nginx
