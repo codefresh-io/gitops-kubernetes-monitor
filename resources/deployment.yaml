@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: kubernetes-monitor
-  name: nginx
+  name: k8s-monitor
   namespace: default
 spec:
   progressDeadlineSeconds: 600
