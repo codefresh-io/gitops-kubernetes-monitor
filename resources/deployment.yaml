@@ -23,7 +23,7 @@ spec:
         sidecar.istio.io/inject: "false"
       creationTimestamp: null
       labels:
-        app: load-k8s-monitor
+        app: kubernetes-monitor
     spec:
       containers:
         - name: test
