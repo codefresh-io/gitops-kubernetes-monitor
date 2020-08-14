@@ -27,4 +27,4 @@ spec:
     spec:
       containers:
         - name: test
-          image: gcr.io/codefresh-inc/codefresh/pipeline-manager:3.84.0-saas-7952-fix
+          image: nginx
