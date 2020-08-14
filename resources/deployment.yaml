@@ -27,4 +27,4 @@ spec:
     spec:
       containers:
         - name: test
-          image: docker.io/codefresh/node-express-docker:1.3
+          image: gcr.io/codefresh-inc/codefresh/pipeline-manager:3.83.2-saas-7698
