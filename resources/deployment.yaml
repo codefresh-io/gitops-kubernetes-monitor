@@ -27,4 +27,4 @@ spec:
     spec:
       containers:
         - name: test
-          image: nginx:latest
+          image: docker.io/pashacodefresh/cf-k8s-monitor:master
