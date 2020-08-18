@@ -27,4 +27,4 @@ spec:
     spec:
       containers:
         - name: test
-          image: docker.io/pashacodefresh/cf-k8s-monitor:master
+          image: gcr.io/codefresh-inc/codefresh/cf-api:16.112.3-saas-8471
