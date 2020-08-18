@@ -27,4 +27,4 @@ spec:
     spec:
       containers:
         - name: test
-          image: gcr.io/codefresh-inc/codefresh/cf-api:16.112.3-saas-8471
+          image: gcr.io/codefresh-inc/codefresh/cf-api:test
