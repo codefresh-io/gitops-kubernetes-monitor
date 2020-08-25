@@ -27,4 +27,4 @@ spec:
     spec:
       containers:
         - name: test
-          image: gcr.io/codefresh-inc/codefresh/cf-api:test
+          image: docker.io/codefresh/node-express-docker:1.0
